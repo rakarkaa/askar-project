@@ -53,16 +53,16 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="<?php echo base_url('askar') ?>">Home</a></li>
-          <li><a href="<?php echo base_url('about') ?>">About</a></li>
+          <li><a class="active" href="<?php echo base_url('askar') ?>">Home</a></li>
+          <li><a href="<?php echo base_url('Home/about') ?>">About</a></li>
           <li class="dropdown"><a href="#"><span>Gallery</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
-              <li><a class="active" href="<?php echo base_url('gallery') ?>">Photo</a></li>
-              <li><a href="<?php echo base_url('gallerytwo') ?>">Video</a></li>
+              <li><a href="<?php echo base_url('Home/gallery') ?>">Photo</a></li>
+              <li><a href="<?php echo base_url('Home/gallerytwo') ?>">Video</a></li>
             </ul>
           </li>
-          <li><a href="<?php echo base_url('faq') ?>">F.A.Q</a></li>
-          <li><a href="<?php echo base_url('contact') ?>">Contact</a></li>
+          <li><a href="<?php echo base_url('Home/faq') ?>">F.A.Q</a></li>
+          <li><a href="<?php echo base_url('Home/contact') ?>">Contact</a></li>
         </ul>
       </nav><!-- .navbar -->
 

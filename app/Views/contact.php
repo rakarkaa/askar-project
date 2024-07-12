@@ -10,8 +10,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link rel="icon" href="<?= base_url() . 'assets/img/portfolio/A.png'; ?>">
-  <link rel="apple-touch-icon" href="<?= base_url() . 'assets/img/apple-touch-icon.png'; ?>">
+  <link rel="icon" href="<?= base_url() . 'public/assets/img/portfolio/A.png'; ?>">
+  <link rel="apple-touch-icon" href="<?= base_url() . 'public/assets/img/apple-touch-icon.png'; ?>">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,14 +19,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="<?php echo base_url(); ?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="<?php echo base_url(); ?>assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="<?php echo base_url(); ?>assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link href="<?php echo base_url(); ?>assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="<?php echo base_url(); ?>assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>public/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>public/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>public/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>public/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>public/assets/vendor/aos/aos.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="<?php echo base_url(); ?>assets/css/main.css" rel="stylesheet" type="text/css">
+  <link href="<?php echo base_url(); ?>public/assets/css/main.css" rel="stylesheet" type="text/css">
 
   <!-- =======================================================
   * Template Name: PhotoFolio
@@ -45,24 +45,24 @@
 
       <a href="index.html" class="logo d-flex align-items-center  me-auto me-lg-0">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <!-- <img src="public/assets/img/logo.png" alt=""> -->
         <!-- <i class="bi bi-camera"></i> -->
-        <img src="<?php echo base_url('assets/img/portfolio/A.png'); ?>" alt="">
-        <h1><img src="<?php echo base_url('assets/img/portfolio/askar.png'); ?>"></h1>
+        <img src="<?php echo base_url('public/assets/img/portfolio/A.png'); ?>" alt="">
+        <h1><img src="<?php echo base_url('public/assets/img/portfolio/askar.png'); ?>"></h1>
       </a>
 
       <nav id="navbar" class="navbar">
-      <ul>
-          <li><a href="<?php echo base_url('askar') ?>">Home</a></li>
-          <li><a href="<?php echo base_url('about') ?>">About</a></li>
+        <ul>
+          <li><a class="active" href="<?php echo base_url('askar') ?>">Home</a></li>
+          <li><a href="<?php echo base_url('Home/about') ?>">About</a></li>
           <li class="dropdown"><a href="#"><span>Gallery</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
-              <li><a href="<?php echo base_url('gallery') ?>">Photo</a></li>
-              <li><a href="<?php echo base_url('gallerytwo') ?>">Video</a></li>
+              <li><a href="<?php echo base_url('Home/gallery') ?>">Photo</a></li>
+              <li><a href="<?php echo base_url('Home/gallerytwo') ?>">Video</a></li>
             </ul>
           </li>
-          <li><a href="<?php echo base_url('faq') ?>">F.A.Q</a></li>
-          <li><a class="active" href="<?php echo base_url('contact') ?>">Contact</a></li>
+          <li><a href="<?php echo base_url('Home/faq') ?>">F.A.Q</a></li>
+          <li><a href="<?php echo base_url('Home/contact') ?>">Contact</a></li>
         </ul>
       </nav><!-- .navbar -->
 
@@ -88,7 +88,7 @@
             <h2>Contact</h2>
             <h2>Get in touch with us</h2>
             <p>Setelah mengisi formulir di bawah ini,
-            buka email Anda untuk mendapatkan pricelist Askar Photography dan dapatkan penawaran spesial dari kami!</p>
+              buka email Anda untuk mendapatkan pricelist Askar Photography dan dapatkan penawaran spesial dari kami!</p>
 
           </div>
         </div>
@@ -156,18 +156,18 @@
                 <div class="col-md-6 form-group mt-3 mt-md-3">
                   <input type="email" class="form-control" name="email" id="email" placeholder="where do you know about Askar Photographpy" required>
                 </div>
-              <!-- <div class="form-group mt-3">
+                <!-- <div class="form-group mt-3">
                 <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
               </div> -->
-              <div class="form-group mt-3">
-                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-              </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
+                <div class="form-group mt-3">
+                  <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                </div>
+                <div class="my-3">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Your message has been sent. Thank you!</div>
+                </div>
+                <div class="text-center"><button type="submit">Send Message</button></div>
             </form>
           </div><!-- End Contact Form -->
 
@@ -201,14 +201,14 @@
   </div>
 
   <!-- Vendor JS Files -->
-  <script src="<?= base_url() . 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js'; ?>"></script>
-  <script src="<?= base_url() . 'assets/vendor/swiper/swiper-bundle.min.js'; ?>"></script>
-  <script src="<?= base_url() . 'assets/vendor/glightbox/js/glightbox.min.js'; ?>"></script>
-  <script src="<?= base_url() . 'assets/vendor/aos/aos.js'; ?>"></script>
-  <script src="<?= base_url() . 'assets/vendor/php-email-form/validate.js'; ?>"></script>
+  <script src="<?= base_url() . 'public/assets/vendor/bootstrap/js/bootstrap.bundle.min.js'; ?>"></script>
+  <script src="<?= base_url() . 'public/assets/vendor/swiper/swiper-bundle.min.js'; ?>"></script>
+  <script src="<?= base_url() . 'public/assets/vendor/glightbox/js/glightbox.min.js'; ?>"></script>
+  <script src="<?= base_url() . 'public/assets/vendor/aos/aos.js'; ?>"></script>
+  <script src="<?= base_url() . 'public/assets/vendor/php-email-form/validate.js'; ?>"></script>
 
   <!-- Template Main JS File -->
-  <script src="<?php echo base_url('assets/js/main.js'); ?>"></script>
+  <script src="<?php echo base_url('public/assets/js/main.js'); ?>"></script>
 
 
 </body>
