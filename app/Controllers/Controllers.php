@@ -30,7 +30,6 @@ class Controllers extends BaseController
     }
     public function index()
     {
-        
-        return view('index',$data);
+        return view('index');
     }
 }
