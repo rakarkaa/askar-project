@@ -62,7 +62,7 @@
             </ul>
           </li>
           <li><a href="<?php echo base_url('Home/faq') ?>">F.A.Q</a></li>
-          <li><a href="<?php echo base_url('Home/contact') ?>">Contact Askar</a></li>
+          <li><a href="<?php echo base_url('Home/contact') ?>">Contact</a></li>
         </ul>
       </nav><!-- .navbar -->
 
