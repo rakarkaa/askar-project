@@ -6,9 +6,15 @@ use App\Models\Models;
 
 class Admin extends BaseController
 {
+
     public function index()
     {
-        return view('Admin/Dashboard');
+        $session = session();
+        if ($session->get('status login') !== 'login') {
+            return redirect()->to('Admin/Login');
+        } else {
+            return view('Admin/Dashboard');
+        }
     }
 
     public function Form_Upload()
@@ -26,6 +32,7 @@ class Admin extends BaseController
 
     public function log()
     {
+        $session = session();
         $username = $this->request->getpost('uname');
         $pass = $this->request->getpost('pass');
 
@@ -34,8 +41,6 @@ class Admin extends BaseController
 
         if ($query->getNumRows() > 0) {
 
-            $this->session = \Config\Services::session();
-            $this->session->start();
             $row = $query->getRow();
             $data = [
                 'kd_user' => $row->kd_user,
@@ -43,7 +48,7 @@ class Admin extends BaseController
                 'token' => $row->token,
                 'status login' => 'login'
             ];
-            $this->session->set($data);
+            $session->set($data);
             return redirect()->to(base_url('Admin/index'));
         } else {
             $msg = 'Username atau Password Salah' . $query->getNumRows();
@@ -85,8 +90,6 @@ class Admin extends BaseController
     public function Upload()
     {
         date_default_timezone_set('Asia/Jakarta');
-        $this->session = \Config\Services::session();
-        $this->session->start();
         if ($this->request->getFileMultiple('images')) {
             foreach ($this->request->getFileMultiple('images') as $file) {
 
@@ -133,5 +136,17 @@ class Admin extends BaseController
 
         unlink(FCPATH . '/uploads/' . $id);
         return redirect()->to('Admin/List');
+    }
+
+    public function logout()
+    {
+        // Access the session service
+        $session = session();
+
+        // Destroy the session
+        $session->destroy();
+
+        // Redirect to the login page or another page
+        return redirect()->to('Admin/Login');
     }
 }
