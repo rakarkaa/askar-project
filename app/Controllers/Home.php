@@ -36,4 +36,40 @@ class Home extends BaseController
     {
         return view('index');
     }
+
+    public function v()
+    {
+
+        return view('Visitor');
+    }
+
+    public function visitor()
+    {
+        $a = $this->request->getpost('nama');
+        $b = $this->request->getpost('instagram');
+        $c = $this->request->getpost('paket');
+        $d = $this->request->getpost('estimasi');
+        $e = $this->request->getpost('budget');
+        $f = $this->request->getpost('q1');
+        $g = $this->request->getpost('q2');
+
+        $s = array(
+            'visitor_nama' => $a,
+            'visitor_instagram' => $b,
+            'visitor_paket' => $c,
+            'visitor_estimasi' => $d,
+            'visitor_budget' => $e,
+            'visitor_q1' => $f,
+            'visitor_q2' => $g
+        );
+        $model = new Models();
+
+
+        if ($model->vis($s)) {
+            $file = ROOTPATH . 'public/uploads/1719930222_2ca6a83bac9fc8f5d558.png';
+            return $this->response->download($file, 'pricelist');
+        // } else {
+        //     return redirect()->to(base_url('Home/index'));
+        }
+    }
 }

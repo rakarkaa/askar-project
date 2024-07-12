@@ -89,18 +89,27 @@ class Admin extends BaseController
         $this->session->start();
         if ($this->request->getFileMultiple('images')) {
             foreach ($this->request->getFileMultiple('images') as $file) {
-                $newName = $file->getRandomName();
-                $file->move(ROOTPATH . 'public/uploads/', $newName);
 
-                $mediaModel = new Models();
-                $data = [
-                    'media_filename' => $file->getName(),
-                    'media_filetype' => $file->getClientMimeType(),
-                    'media_filepath' => 'public/uploads/' . $newName,
-                    'media_uploaddate' => date("Y-m-d H:i:s"),
-                    'kd_user' => $_SESSION['kd_user']
-                ];
-                $mediaModel->savedata($data);
+                if ($file->getName() == null) {
+                    $msg = 'Tidak Ada Foto atau Video yang Diunggah';
+                    return redirect()->to(base_url('Admin/Form_Upload'))->with('e2', $msg);
+                } elseif (!in_array($file->getClientMimeType(), ['image/png', 'image/jpg', 'image/jpeg', 'video/mp4'])) {
+                    $msg = 'Format File Tidak Valid';
+                    return redirect()->to(base_url('Admin/Form_Upload'))->with('e1', $msg);
+                } else {
+                    $newName = $file->getRandomName();
+                    $file->move(ROOTPATH . 'public/uploads/', $newName);
+
+                    $mediaModel = new Models();
+                    $data = [
+                        'media_filename' => $file->getName(),
+                        'media_filetype' => $file->getClientMimeType(),
+                        'media_filepath' => 'public/uploads/' . $newName,
+                        'media_uploaddate' => date("Y-m-d H:i:s"),
+                        'kd_user' => $_SESSION['kd_user']
+                    ];
+                    $mediaModel->savedata($data);
+                }
             }
             $msg = 'Files have been successfully uploaded';
             return redirect()->to(base_url('Admin/Form_Upload'))->with('msg', $msg);
@@ -122,7 +131,7 @@ class Admin extends BaseController
         $model = new Models();
         $model->deletedata($data_filter);
 
-        unlink(ROOTPATH.'public/uploads/'.$id);
+        unlink(ROOTPATH . 'public/uploads/' . $id);
         return redirect()->to('Admin/List');
     }
 }
