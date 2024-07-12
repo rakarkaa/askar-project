@@ -65,11 +65,8 @@ class Home extends BaseController
         $model = new Models();
 
 
-        if ($model->vis($s)) {
-            $file = ROOTPATH . 'public/uploads/1719930222_2ca6a83bac9fc8f5d558.png';
-            return $this->response->download($file, 'pricelist');
-        // } else {
-        //     return redirect()->to(base_url('Home/index'));
-        }
+        $model->vis($s);
+        return $this->response->download( FCPATH.'/uploads/1719930222_2ca6a83bac9fc8f5d558.png', null);
+
     }
 }

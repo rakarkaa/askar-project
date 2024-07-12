@@ -26,7 +26,7 @@
                                 $ndate = date('d-F-Y H:i:s', strtotime($item->media_uploaddate));
                                 echo  $ndate; ?>
                             </div>
-                            <div class="modal fade" id="confirmDeleteModal <?= $index; ?>" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
+                            <div class="modal fade" id="confirmDeleteModal<?=$item->media_id;?>" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -63,7 +63,7 @@
                                 $ndate = date('d-F-Y H:i:s', strtotime($item->media_uploaddate));
                                 echo  $ndate; ?>
                             </div>
-                            <div class="modal fade" id="confirmDeleteModal <?= $index; ?>" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
+                            <div class="modal fade" id="confirmDeleteModal<?=$item->media_id;?>" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -86,7 +86,7 @@
 
 
                     <?php } ?>
-                    <a href="#" data-toggle="modal" data-target="#confirmDeleteModal<?= $index; ?>">Hapus File</a>
+                    <a href="#" data-toggle="modal" data-target="#confirmDeleteModal<?=$item->media_id;?>">Hapus File</a>
                 <?php  } ?>
             </form>
         </div>

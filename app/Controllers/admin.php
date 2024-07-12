@@ -98,7 +98,7 @@ class Admin extends BaseController
                     return redirect()->to(base_url('Admin/Form_Upload'))->with('e1', $msg);
                 } else {
                     $newName = $file->getRandomName();
-                    $file->move(ROOTPATH . 'public/uploads/', $newName);
+                    $file->move(FCPATH . '/uploads/', $newName);
 
                     $mediaModel = new Models();
                     $data = [
@@ -131,7 +131,7 @@ class Admin extends BaseController
         $model = new Models();
         $model->deletedata($data_filter);
 
-        unlink(ROOTPATH . 'public/uploads/' . $id);
+        unlink(FCPATH . '/uploads/' . $id);
         return redirect()->to('Admin/List');
     }
 }
