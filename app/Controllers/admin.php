@@ -161,6 +161,6 @@ class Admin extends BaseController
         return redirect()->to('Admin/Login');
     }
     function t(){
-        
+        echo '' ;
     }
 }
