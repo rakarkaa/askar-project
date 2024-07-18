@@ -1,0 +1,14 @@
+{
+  "AZURE_BLOB_DOMAIN": "blob.core.windows.net",
+  "AZURE_TABLE_DOMAIN": "table.core.windows.net",
+  "AZURE_STORAGE_ACCOUNT": "linewarwwwprodwe",
+  "AZURE_ACCESS_KEY": "",
+  "AZURE_SAS_BLOB_TOKENS": {
+    "(BlobContainer.replays, Privilege.blob_read)": "?sv=2021-08-06&st=2022-11-23T06%3A40%3A25Z&se=2222-11-24T06%3A40%3A00Z&sr=c&sp=r&sig=yG%2FByIv0%2FUXc3CLvUYfi%2BVNsw90nlevJHCXE7AqCQ6g%3D",
+    "(BlobContainer.summaries, Privilege.blob_read)": "?sv=2021-08-06&st=2022-12-22T09%3A00%3A05Z&se=2222-12-23T09%3A00%3A00Z&sr=c&sp=r&sig=Sk2XtSrVkUsyBEj%2B7UfJrWWDm%2FpJ8DCfbUbrJVk0gUM%3D"
+  },
+  "AZURE_SAS_TABLE_TOKENS": {
+    "(Table.matchmakingstats, Privilege.table_add_update)": "?sv=2019-02-02&se=2222-11-24T13%3A34%3A00Z&sp=au&sig=plWkC%2F3j2iGXftiCXtx8f%2FTq%2FD9QPRtTCD7aB2v8iOs%3D&tn=matchmakingstats",
+    "(Table.replaysbysteamid, Privilege.table_query)": "?sv=2019-02-02&se=2222-11-24T06%3A42%3A00Z&sp=r&sig=YU6injYADfXCw4YqVuS2Rnjvunvjmzy8dhuIl9bRCQs%3D&tn=replaysbysteamid"
+  }
+}

@@ -6,9 +6,15 @@ use App\Models\Models;
 
 class Admin extends BaseController
 {
+
     public function index()
     {
-        return view('Admin/Dashboard');
+        $session = session();
+        if ($session->get('status login') !== 'login') {
+            return redirect()->to('Admin/Login');
+        } else {
+            return view('Admin/Dashboard');
+        }
     }
 
     public function Form_Upload()
@@ -26,6 +32,7 @@ class Admin extends BaseController
 
     public function log()
     {
+        $session = session();
         $username = $this->request->getpost('uname');
         $pass = $this->request->getpost('pass');
 
@@ -34,8 +41,6 @@ class Admin extends BaseController
 
         if ($query->getNumRows() > 0) {
 
-            $this->session = \Config\Services::session();
-            $this->session->start();
             $row = $query->getRow();
             $data = [
                 'kd_user' => $row->kd_user,
@@ -43,7 +48,7 @@ class Admin extends BaseController
                 'token' => $row->token,
                 'status login' => 'login'
             ];
-            $this->session->set($data);
+            $session->set($data);
             return redirect()->to(base_url('Admin/index'));
         } else {
             $msg = 'Username atau Password Salah' . $query->getNumRows();
@@ -85,22 +90,29 @@ class Admin extends BaseController
     public function Upload()
     {
         date_default_timezone_set('Asia/Jakarta');
-        $this->session = \Config\Services::session();
-        $this->session->start();
         if ($this->request->getFileMultiple('images')) {
             foreach ($this->request->getFileMultiple('images') as $file) {
-                $newName = $file->getRandomName();
-                $file->move(ROOTPATH . 'public/uploads/', $newName);
 
-                $mediaModel = new Models();
-                $data = [
-                    'media_filename' => $file->getName(),
-                    'media_filetype' => $file->getClientMimeType(),
-                    'media_filepath' => 'public/uploads/' . $newName,
-                    'media_uploaddate' => date("Y-m-d H:i:s"),
-                    'kd_user' => $_SESSION['kd_user']
-                ];
-                $mediaModel->savedata($data);
+                if ($file->getName() == null) {
+                    $msg = 'Tidak Ada Foto atau Video yang Diunggah';
+                    return redirect()->to(base_url('Admin/Form_Upload'))->with('e2', $msg);
+                } elseif (!in_array($file->getClientMimeType(), ['image/png', 'image/jpg', 'image/jpeg', 'video/mp4'])) {
+                    $msg = 'Format File Tidak Valid';
+                    return redirect()->to(base_url('Admin/Form_Upload'))->with('e1', $msg);
+                } else {
+                    $newName = $file->getRandomName();
+                    $file->move(FCPATH . '/uploads/', $newName);
+
+                    $mediaModel = new Models();
+                    $data = [
+                        'media_filename' => $file->getName(),
+                        'media_filetype' => $file->getClientMimeType(),
+                        'media_filepath' => 'public/uploads/' . $newName,
+                        'media_uploaddate' => date("Y-m-d H:i:s"),
+                        'kd_user' => $_SESSION['kd_user']
+                    ];
+                    $mediaModel->savedata($data);
+                }
             }
             $msg = 'Files have been successfully uploaded';
             return redirect()->to(base_url('Admin/Form_Upload'))->with('msg', $msg);
@@ -122,7 +134,19 @@ class Admin extends BaseController
         $model = new Models();
         $model->deletedata($data_filter);
 
-        unlink(ROOTPATH.'public/uploads/'.$id);
+        unlink(FCPATH . '/uploads/' . $id);
         return redirect()->to('Admin/List');
+    }
+
+    public function logout()
+    {
+        // Access the session service
+        $session = session();
+
+        // Destroy the session
+        $session->destroy();
+
+        // Redirect to the login page or another page
+        return redirect()->to('Admin/Login');
     }
 }

@@ -16,13 +16,22 @@
 <body>
   <div class="container mt-5">
     <?php if (session('msg')) : ?>
-        <div class="alert alert-success mt-3">
-            <?= session('msg') ?>
-        </div>
-    <?php endif ?>    
+      <div class="alert alert-success mt-3">
+        <?= session('msg') ?>
+      </div>
+    <?php endif ?>
+    <?php if (session('e1')) : ?>
+      <div class="alert alert-danger mt-3">
+        <?= session('e1') ?>
+      </div>
+    <?php endif ?>
+    <?php if (session('e2')) : ?>
+      <div class="alert alert-danger mt-3">
+        <?= session('e2') ?>
+      </div>
+    <?php endif ?>
 
-    <form method="post" action="<?php echo base_url('Admin/Upload');?>" 
-    enctype="multipart/form-data">
+    <form method="post" action="<?php echo base_url('Admin/Upload'); ?>" enctype="multipart/form-data">
       <div class="form-group mt-3">
         <input type="file" name='images[]' multiple="" class="form-control">
       </div>
