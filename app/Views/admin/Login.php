@@ -25,7 +25,7 @@
             <?= session('error') ?>
         </div>
     <?php endif ?>    
-    <form action="<?php echo base_url('Admin/log');?>" class="log-in" autocomplete="off"> 
+    <form method="post" action="<?php echo base_url('Admin/log');?>" class="log-in" autocomplete="off" enctype="multipart/form-data"> 
       <h4>We are <span> Askar Team </span></h4>
       <p>Welcome back! Log in to your account to view today's:</p>
       <div class="floating-label">
