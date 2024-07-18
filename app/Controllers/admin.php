@@ -51,7 +51,7 @@ class Admin extends BaseController
             $session->set($data);
             return redirect()->to(base_url('Admin/index'));
         } else {
-            $msg = 'Username atau Password Salah' . $query->getNumRows();
+            $msg = 'Username atau Password Salah';
             return redirect()->to(base_url('Admin/Login'))->with('error', $msg);
         }
     }
@@ -79,16 +79,17 @@ class Admin extends BaseController
             $model->reg($simpan_data);
             return view('Admin/login');
         } elseif ($query->getNumRows() > 0) {
-            echo '<script>alert("Username ini sudah terdaftar")</script>';
-            return view('Login/regist');
+            $msg = 'Username ini sudah terdaftar';
+            return redirect()->to(base_url('Admin/Register'))->with('e1', $msg);
         } else {
-            echo '<script>alert("Email ini sudah terdaftar")</script>';
-            return view('Login/regist');
+            $msg = 'Unknown Error';
+            return redirect()->to(base_url('Admin/Register'))->with('e2', $msg);
         }
     }
 
     public function Upload()
     {
+        $session = session();
         date_default_timezone_set('Asia/Jakarta');
         if ($this->request->getFileMultiple('images')) {
             foreach ($this->request->getFileMultiple('images') as $file) {
@@ -97,7 +98,7 @@ class Admin extends BaseController
                     $msg = 'Tidak Ada Foto atau Video yang Diunggah';
                     return redirect()->to(base_url('Admin/Form_Upload'))->with('e2', $msg);
                 } elseif (!in_array($file->getClientMimeType(), ['image/png', 'image/jpg', 'image/jpeg', 'video/mp4'])) {
-                    $msg = 'Format File Tidak Valid';
+                    $msg = 'Format Foto atau Video Tidak Valid. <br> Format yang Diperbolehkan .png .jpg .mp4';
                     return redirect()->to(base_url('Admin/Form_Upload'))->with('e1', $msg);
                 } else {
                     $newName = $file->getRandomName();
