@@ -107,7 +107,7 @@
                 <div class="gallery-item h-100">
                   <img src="<?= base_url($item->media_filepath) ?>" class="img-fluid" alt="">
                   <div class="gallery-links d-flex align-items-center justify-content-center">
-                    <a href="public/assets/img/gallery/gallery-1.jpg" title="Gallery 1" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
+                    <a href="<?= base_url($item->media_filepath) ?>" title="<?= $item->media_filename ?>" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
                     <a href="gallery-single.html" class="details-link"><i class="bi bi-link-45deg"></i></a>
                   </div>
                 </div>
@@ -121,7 +121,8 @@
         </div>
 
       </div>
-    </section><!-- End Gallery Section -->
+    </section>
+    <!-- End Gallery Section -->
 
   </main><!-- End #main -->
 

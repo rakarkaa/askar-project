@@ -20,7 +20,9 @@ class Home extends BaseController
     }
     public function gallerytwo()
     {
-        return view('gallerytwo');
+        $model = new Models();
+        $data['media'] = $model->getdata();
+        return view('gallerytwo',$data);
     }
     public function gallery()
     {
