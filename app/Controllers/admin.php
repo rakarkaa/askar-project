@@ -19,7 +19,12 @@ class Admin extends BaseController
 
     public function Form_Upload()
     {
-        return view('Admin/Upload');
+        $session = session();
+        if ($session->get('status login') !== 'login') {
+            return redirect()->to('Admin/Login');
+        } else {
+            return view('Admin/Upload');
+        }
     }
     public function Login()
     {
@@ -122,9 +127,14 @@ class Admin extends BaseController
 
     public function List()
     {
-        $model = new Models();
-        $data['media'] = $model->getnama();
-        return view('Admin/List', $data);
+        $session = session();
+        if ($session->get('status login') !== 'login') {
+            return redirect()->to('Admin/Login');
+        } else {
+            $model = new Models();
+            $data['media'] = $model->getnama();
+            return view('Admin/List', $data);
+        }
     }
 
     public function delete($id)
@@ -139,7 +149,7 @@ class Admin extends BaseController
         return redirect()->to('Admin/List');
     }
 
-    public function logout()
+    public function Logout()
     {
         // Access the session service
         $session = session();
