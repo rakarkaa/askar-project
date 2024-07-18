@@ -32,7 +32,7 @@
                         <li><a class="dropdown-item" href="#!">Settings</a></li>
                         <li><a class="dropdown-item" href="#!">Activity</a></li>
                         <li><hr class="dropdown-divider" /></li>
-                        <a href="<?= base_url('Admin/Form_Upload');?>">Uplaod Foto/Video</a>
+                        <a href="<?= base_url('Admin/Form_Upload');?>">Uplaod Foto dan Video</a>
                         <li><a class="dropdown-item" href="#!">Logout</a></li>
                     </ul>
                 </li>
