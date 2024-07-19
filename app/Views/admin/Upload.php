@@ -16,6 +16,11 @@
     <link href="<?php echo base_url(); ?>public/assets/admin/css/upload.css" rel="stylesheet" type="text/css">
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     <link rel="icon" href="<?= base_url() . 'public/assets/img/portfolio/A.png'; ?>">
+    <style>
+        #cancel-button {
+            display: none;
+        }
+    </style>
 </head>
 
 <body class="sb-nav-fixed">
@@ -107,12 +112,12 @@
                                 </div>
                             <?php endif ?>
                             <div class="card-block">
-                                <form method="post" action="<?php echo base_url('Admin/Upload'); ?>" enctype="multipart/form-data" class="dropzone dz-clickable">
-
-                                    <div class="dz-default dz-message" input type="file" name='images[]' multiple=""><span>Drop files here to upload</span></div>
+                                <form method="post" action="<?= base_url('Admin/Upload') ?>" enctype="multipart/form-data" class="dropzone" id="my-dropzone">
+                                    <div class="dz-default dz-message"><span>Drop files here to upload</span></div>
                                 </form>
                                 <div class="text-center m-t-20">
-                                    <button class="btn btn-primary" type="submit">Upload Now</button>
+                                    <button class="btn btn-primary" type="button" id="upload-button">Upload Now</button>
+                                    <button class="btn btn-secondary" type="button" id="cancel-button">Cancel All</button>
                                 </div>
                             </div>
                         </div>
@@ -168,14 +173,54 @@
     <script>
         Dropzone.options.myDropzone = {
             paramName: 'images[]', // The name that will be used to transfer the file
-            maxFilesize: 2, // MB
-            acceptedFiles: 'image/*',
+            maxFilesize: 10, // Maximum file size in MB (adjust as needed)
+            acceptedFiles: 'image/*,video/*',
+            autoProcessQueue: false, // Prevents Dropzone from uploading files automatically
+            addRemoveLinks: true, // Adds a remove link to each file preview
+            dictRemoveFile: "Cancel", // Custom text for the remove link
+            parallelUploads: 100, // Allow up to 100 parallel uploads
             init: function() {
+                var myDropzone = this;
+
+                // Event listener for the upload button
+                document.getElementById('upload-button').addEventListener('click', function() {
+                    // Check if there are files to upload
+                    if (myDropzone.getQueuedFiles().length > 0) {
+                        myDropzone.processQueue(); // Manually process the queue
+                    } else {
+                        alert('Please add files to upload.');
+                    }
+                });
+
+                // Event listener for the cancel all button
+                document.getElementById('cancel-button').addEventListener('click', function() {
+                    myDropzone.removeAllFiles(true); // Remove all files from the Dropzone
+                });
+
+                // Show the cancel button when files are added
+                myDropzone.on("addedfile", function() {
+                    document.getElementById('cancel-button').style.display = 'inline-block';
+                });
+
+                // Hide the cancel button when no files are left
+                myDropzone.on("removedfile", function() {
+                    if (myDropzone.files.length === 0) {
+                        document.getElementById('cancel-button').style.display = 'none';
+                    }
+                });
+
+                // Optional: Success and error event handlers
                 this.on("success", function(file, response) {
                     console.log("File uploaded successfully");
                 });
                 this.on("error", function(file, response) {
                     console.log("File upload failed");
+                });
+
+                // Event listener for queue completion
+                this.on("queuecomplete", function() {
+                    myDropzone.removeAllFiles(true); // Automatically remove all files after upload
+                    console.log("All files uploaded and removed from the queue.");
                 });
             }
         };
