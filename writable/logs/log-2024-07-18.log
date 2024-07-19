@@ -158,3 +158,140 @@ INFO - 2024-07-18 14:02:26 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2024-07-18 14:02:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-07-18 14:04:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-07-18 14:04:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-07-18 14:32:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-07-18 14:32:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-07-18 14:33:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-07-18 14:33:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-07-18 14:38:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-07-18 14:38:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-07-18 14:42:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-07-18 14:42:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-07-18 14:42:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-07-18 14:42:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-07-18 14:44:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-07-18 14:45:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-07-18 14:45:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-07-18 14:46:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-07-18 14:46:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-07-18 14:49:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-07-18 14:49:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-07-18 15:37:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-07-18 15:37:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-07-18 15:37:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-07-18 22:38:10 --> [DEPRECATED] md5(): Passing null to parameter #1 ($string) of type string is deprecated in APPPATH\Controllers\admin.php on line 79.
+ 1 APPPATH\Controllers\admin.php(79): md5(null)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->reg()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2024-07-18 22:38:10 --> mysqli_sql_exception: Column 'username' cannot be null in C:\xampp\htdocs\askar-project\system\Database\MySQLi\Connection.php:308
+Stack trace:
+#0 C:\xampp\htdocs\askar-project\system\Database\MySQLi\Connection.php(308): mysqli->query('INSERT INTO `us...', 0)
+#1 C:\xampp\htdocs\askar-project\system\Database\BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `us...')
+#2 C:\xampp\htdocs\askar-project\system\Database\BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `us...')
+#3 C:\xampp\htdocs\askar-project\system\Database\BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query('INSERT INTO `us...', Array, false)
+#4 C:\xampp\htdocs\askar-project\app\Models\Models.php(49): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\askar-project\app\Controllers\admin.php(84): App\Models\Models->reg(Array)
+#6 C:\xampp\htdocs\askar-project\system\CodeIgniter.php(933): App\Controllers\Admin->reg()
+#7 C:\xampp\htdocs\askar-project\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 C:\xampp\htdocs\askar-project\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\askar-project\system\Boot.php(312): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\askar-project\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\askar-project\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2024-07-18 22:38:10 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'username' cannot be null
+[Method: GET, Route: Admin/Reg]
+in SYSTEMPATH\Database\BaseConnection.php on line 676.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query('INSERT INTO `user` (`username`, `password`, `nama`, `token`) VALUES (:username:, :password:, :nama:, :token:)', [...], false)
+ 2 APPPATH\Models\Models.php(49): CodeIgniter\Database\BaseBuilder->insert([...])
+ 3 APPPATH\Controllers\admin.php(84): App\Models\Models->reg([...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->reg()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-18 22:38:10 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'username' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 313.
+ 1 SYSTEMPATH\Database\BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `user` (`username`, `password`, `nama`, `token`) VALUES (NULL, \'d41d8cd98f00b204e9800998ecf8427e\', NULL, \'f55969fe8e51a74783978901641a9724\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `user` (`username`, `password`, `nama`, `token`) VALUES (NULL, \'d41d8cd98f00b204e9800998ecf8427e\', NULL, \'f55969fe8e51a74783978901641a9724\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query('INSERT INTO `user` (`username`, `password`, `nama`, `token`) VALUES (:username:, :password:, :nama:, :token:)', [...], false)
+ 4 APPPATH\Models\Models.php(49): CodeIgniter\Database\BaseBuilder->insert([...])
+ 5 APPPATH\Controllers\admin.php(84): App\Models\Models->reg([...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->reg()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-18 22:38:10 --> [Caused by] mysqli_sql_exception: Column 'username' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 308.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(308): mysqli->query('INSERT INTO `user` (`username`, `password`, `nama`, `token`) VALUES (NULL, \'d41d8cd98f00b204e9800998ecf8427e\', NULL, \'f55969fe8e51a74783978901641a9724\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `user` (`username`, `password`, `nama`, `token`) VALUES (NULL, \'d41d8cd98f00b204e9800998ecf8427e\', NULL, \'f55969fe8e51a74783978901641a9724\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `user` (`username`, `password`, `nama`, `token`) VALUES (NULL, \'d41d8cd98f00b204e9800998ecf8427e\', NULL, \'f55969fe8e51a74783978901641a9724\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query('INSERT INTO `user` (`username`, `password`, `nama`, `token`) VALUES (:username:, :password:, :nama:, :token:)', [...], false)
+ 5 APPPATH\Models\Models.php(49): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 APPPATH\Controllers\admin.php(84): App\Models\Models->reg([...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->reg()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-07-18 15:38:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-07-18 15:42:40 --> mysqli_sql_exception: Table 'gallery.visitor' doesn't exist in C:\xampp\htdocs\askar-project\system\Database\MySQLi\Connection.php:308
+Stack trace:
+#0 C:\xampp\htdocs\askar-project\system\Database\MySQLi\Connection.php(308): mysqli->query('INSERT INTO `vi...', 0)
+#1 C:\xampp\htdocs\askar-project\system\Database\BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `vi...')
+#2 C:\xampp\htdocs\askar-project\system\Database\BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `vi...')
+#3 C:\xampp\htdocs\askar-project\system\Database\BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query('INSERT INTO `vi...', Array, false)
+#4 C:\xampp\htdocs\askar-project\app\Models\Models.php(53): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\askar-project\app\Controllers\Home.php(70): App\Models\Models->vis(Array)
+#6 C:\xampp\htdocs\askar-project\system\CodeIgniter.php(933): App\Controllers\Home->visitor()
+#7 C:\xampp\htdocs\askar-project\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 C:\xampp\htdocs\askar-project\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\askar-project\system\Boot.php(312): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\askar-project\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\askar-project\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2024-07-18 15:42:40 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'gallery.visitor' doesn't exist
+[Method: GET, Route: Home/visitor]
+in SYSTEMPATH\Database\BaseConnection.php on line 676.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query('INSERT INTO `visitor` (`visitor_nama`, `visitor_instagram`, `visitor_paket`, `visitor_estimasi`, `visitor_budget`, `visitor_q1`, `visitor_q2`) VALUES (:visitor_nama:, :visitor_instagram:, :visitor_paket:, :visitor_estimasi:, :visitor_budget:, :visitor_q1:, :visitor_q2:)', [...], false)
+ 2 APPPATH\Models\Models.php(53): CodeIgniter\Database\BaseBuilder->insert([...])
+ 3 APPPATH\Controllers\Home.php(70): App\Models\Models->vis([...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->visitor()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-18 15:42:40 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'gallery.visitor' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 313.
+ 1 SYSTEMPATH\Database\BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `visitor` (`visitor_nama`, `visitor_instagram`, `visitor_paket`, `visitor_estimasi`, `visitor_budget`, `visitor_q1`, `visitor_q2`) VALUES (NULL, NULL, NULL, NULL, NULL, NULL, NULL)')
+ 2 SYSTEMPATH\Database\BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `visitor` (`visitor_nama`, `visitor_instagram`, `visitor_paket`, `visitor_estimasi`, `visitor_budget`, `visitor_q1`, `visitor_q2`) VALUES (NULL, NULL, NULL, NULL, NULL, NULL, NULL)')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query('INSERT INTO `visitor` (`visitor_nama`, `visitor_instagram`, `visitor_paket`, `visitor_estimasi`, `visitor_budget`, `visitor_q1`, `visitor_q2`) VALUES (:visitor_nama:, :visitor_instagram:, :visitor_paket:, :visitor_estimasi:, :visitor_budget:, :visitor_q1:, :visitor_q2:)', [...], false)
+ 4 APPPATH\Models\Models.php(53): CodeIgniter\Database\BaseBuilder->insert([...])
+ 5 APPPATH\Controllers\Home.php(70): App\Models\Models->vis([...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->visitor()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-07-18 15:42:40 --> [Caused by] mysqli_sql_exception: Table 'gallery.visitor' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 308.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(308): mysqli->query('INSERT INTO `visitor` (`visitor_nama`, `visitor_instagram`, `visitor_paket`, `visitor_estimasi`, `visitor_budget`, `visitor_q1`, `visitor_q2`) VALUES (NULL, NULL, NULL, NULL, NULL, NULL, NULL)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `visitor` (`visitor_nama`, `visitor_instagram`, `visitor_paket`, `visitor_estimasi`, `visitor_budget`, `visitor_q1`, `visitor_q2`) VALUES (NULL, NULL, NULL, NULL, NULL, NULL, NULL)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `visitor` (`visitor_nama`, `visitor_instagram`, `visitor_paket`, `visitor_estimasi`, `visitor_budget`, `visitor_q1`, `visitor_q2`) VALUES (NULL, NULL, NULL, NULL, NULL, NULL, NULL)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query('INSERT INTO `visitor` (`visitor_nama`, `visitor_instagram`, `visitor_paket`, `visitor_estimasi`, `visitor_budget`, `visitor_q1`, `visitor_q2`) VALUES (:visitor_nama:, :visitor_instagram:, :visitor_paket:, :visitor_estimasi:, :visitor_budget:, :visitor_q1:, :visitor_q2:)', [...], false)
+ 5 APPPATH\Models\Models.php(53): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 APPPATH\Controllers\Home.php(70): App\Models\Models->vis([...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->visitor()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(312): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
